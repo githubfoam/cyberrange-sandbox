@@ -22,7 +22,7 @@ jobs:
           - sudo egrep -c '(vmx|svm)' /proc/cpuinfo
           - sudo egrep "(svm|vmx)" /proc/cpuinfo #check whether your on-premises server or virtual machine supports KVM.
           - sudo apt-get install qemu-kvm qemu virt-manager virt-viewer libvirt-bin bridge-utils # Install KVM and related dependencies.
-          - sudo virt-manager # Enable virt-manager.GUI starts
+          # - sudo virt-manager # Enable virt-manager.GUI starts (virt-manager:12440): Gtk-WARNING **: 22:48:48.680: cannot open display: 
           # - wget https://raw.githubusercontent.com/alibaba/packer-provider/master/examples/alicloud/local/centos.json # Download file centos.json that is released by Alibaba Cloud.
           # - wget https://raw.githubusercontent.com/alibaba/packer-provider/master/examples/alicloud/local/http/centos-6.9/ks.cfg # Download file ks.cfg that is released by Alibaba Cloud.
           # - sudo mkdir -p http/centos-6.9 # Create a directory.
