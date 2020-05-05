@@ -26,18 +26,10 @@ jobs:
           - vagrant version
           - sudo vagrant plugin install vagrant-libvirt
           - sudo vagrant plugin install vagrant-mutate
-          - sudo vagrant box add "bento/ubuntu-16.04"
-          - sudo vagrant mutate "bento/ubuntu-16.04" libvirt
-          - sudo vagrant box add "bento/windows-2019"
-          - sudo vagrant mutate "bento/windows-2019" libvirt
-          - sudo vagrant box add "bento/macosx-10.11"
-          - sudo vagrant mutate "bento/macosx-10.11" libvirt
-          - sudo vagrant box add "bento/hardenedbsd-11"
-          - sudo vagrant mutate "bento/hardenedbsd-11" libvirt
-          - sudo vagrant box add "bento/scientific-7.7"
-          - sudo vagrant mutate "bento/scientific-7.7" libvirt
-          - sudo vagrant box add "bento/solaris-11.4"
-          - sudo vagrant mutate "bento/solaris-11.4" libvirt          
+          - make clean ## Clean up build
+          - make list #prints the list of available boxes
+          # - sudo vagrant box add "bento/ubuntu-16.04"
+          # - sudo vagrant mutate "bento/ubuntu-16.04" libvirt
           - sudo vagrant status
           - sudo virsh list --all #show all running KVM/libvirt VMs
           - vagrant box list #veridy installed boxes
