@@ -6,7 +6,7 @@ rvm:
   - 2.7
 env:
   global:
-  - VAGRANT_VERSION="2.2.7"
+  - VAGRANT_VERSION="2.2.8"
   - PACKER_VERSION="1.5.6"
 before_install:
   - sudo apt-get -qq update
@@ -26,7 +26,10 @@ jobs:
           - echo "=================================================================================================================="
           - echo "================================Installing Packer================================================================"
           - sudo wget -nv https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
-          - sudo dpkg -i vagrant_${VAGRANT_VERSION}_x86_64.deb
+          - sudo unzip packer_${PACKER_VERSION}_linux_amd64.zip
+          - sudo cp packer /usr/bin
+          - stat /usr/bin/packer
+          - sudo packer --version
           - echo "=================================================================================================================="
           - echo "================================Installing Vagrant================================================================"
           - sudo wget -nv https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb
