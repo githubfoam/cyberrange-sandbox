@@ -27,7 +27,7 @@ jobs:
           # - wget https://raw.githubusercontent.com/alibaba/packer-provider/master/examples/alicloud/local/http/centos-6.9/ks.cfg # Download file ks.cfg that is released by Alibaba Cloud.
           # - sudo mkdir -p http/centos-6.9 # Create a directory.
           # - sudo mv ks.cfg http/centos-6.9/ # Move file ks.cfg to the http/centos-6.9 directory.
-          - sudo packer build centos.json # Create an on-premises image.
+          - sudo PACKER_LOG=1 packer build centos.json # Create an on-premises image.
           # - sudo addgroup libvirtd
           # - sudo adduser  $(id -un) libvirtd #ensure that your username is added to the group libvirtd
           # - sudo kvm-ok
