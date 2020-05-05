@@ -19,7 +19,7 @@ jobs:
           # - sudo libvirtd --version
           #If 0 it means that your CPU doesn't support hardware virtualization.If 1 or more it does -
           # but you still need to make sure that virtualization is enabled in the BIOS.
-          - sudo egrep -c '(vmx|svm)' /proc/cpuinfo
+          - sudo egrep -c '(vmx|svm)' /proc/cpuinfo #2
           - sudo egrep "(svm|vmx)" /proc/cpuinfo #check whether your on-premises server or virtual machine supports KVM.
           - sudo apt-get install qemu-kvm qemu virt-manager virt-viewer libvirt-bin bridge-utils # Install KVM and related dependencies.
           # - sudo virt-manager # Enable virt-manager.GUI starts (virt-manager:12440): Gtk-WARNING **: 22:48:48.680: cannot open display:

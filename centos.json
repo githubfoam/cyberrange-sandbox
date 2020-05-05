@@ -19,7 +19,8 @@
     "name": "centos-6.10",
     "no_proxy": "{{env `no_proxy`}}",
     "template": "centos-6.10-x86_64",
-    "version": "2.1.TIMESTAMP"
+    "version": "2.1.TIMESTAMP",
+    "headless": true
   },
   "builders":[
     {
