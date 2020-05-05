@@ -7,6 +7,7 @@ rvm:
 env:
   global:
   - VAGRANT_VERSION="2.2.7"
+  - PACKER_VERSION="1.5.6"
 before_install:
   - sudo apt-get -qq update
 jobs:
@@ -20,10 +21,19 @@ jobs:
           - sudo addgroup libvirtd
           - sudo adduser  $(id -un) libvirtd #ensure that your username is added to the group libvirtd
           - sudo kvm-ok
-          - sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
-          - sudo wget -nv https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb
+          # - sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+          #https://releases.hashicorp.com/packer/1.5.6/packer_1.5.6_linux_amd64.zip
+          - echo "=================================================================================================================="
+          - echo "================================Installing Packer================================================================"
+          - sudo wget -nv https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
           - sudo dpkg -i vagrant_${VAGRANT_VERSION}_x86_64.deb
-          - vagrant version
+          - echo "=================================================================================================================="
+          - echo "================================Installing Vagrant================================================================"
+          - sudo wget -nv https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb
+          - sudo unzip packer_${VAGRANT_VERSION}__linux_amd64.zip
+          - sudo cp packer /usr/sbin
+          - packer --version
+          - echo "=================================================================================================================="
           - sudo vagrant plugin install vagrant-libvirt
           - sudo vagrant plugin install vagrant-mutate
           - make clean ## Clean up build
