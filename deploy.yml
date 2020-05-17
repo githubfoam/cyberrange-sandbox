@@ -1,0 +1,13 @@
+---
+- hosts: master01
+  become: yes
+  roles:
+    - common
+- hosts: compute01
+  become: yes
+  roles:
+    - common
+- hosts: compute02
+  become: yes
+  roles:
+    - common

@@ -6,7 +6,7 @@ rvm:
   - 2.7
 env:
   global:
-  - VAGRANT_VERSION="2.2.8"
+  - VAGRANT_VERSION="2.2.9"
   - PACKER_VERSION="1.5.6"
 before_install:
   - sudo apt-get -qq update
@@ -14,25 +14,21 @@ jobs:
   include:
     - stage: "build Vagrant and Libvirt with KVM or QEMU - bionic"
       script:
-          # - sudo apt-get install -y cpu-checker bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
-          # - sudo systemctl status libvirtd
-          # - sudo libvirtd --version
-          #If 0 it means that your CPU doesn't support hardware virtualization.If 1 or more it does -
-          # but you still need to make sure that virtualization is enabled in the BIOS.
-          - sudo egrep -c '(vmx|svm)' /proc/cpuinfo #2
-          - sudo egrep "(svm|vmx)" /proc/cpuinfo #check whether your on-premises server or virtual machine supports KVM.
-          - sudo apt-get install qemu-kvm qemu virt-manager virt-viewer libvirt-bin bridge-utils # Install KVM and related dependencies.
-          # - sudo virt-manager # Enable virt-manager.GUI starts (virt-manager:12440): Gtk-WARNING **: 22:48:48.680: cannot open display:
-          # - wget https://raw.githubusercontent.com/alibaba/packer-provider/master/examples/alicloud/local/centos.json # Download file centos.json that is released by Alibaba Cloud.
-          # - wget https://raw.githubusercontent.com/alibaba/packer-provider/master/examples/alicloud/local/http/centos-6.9/ks.cfg # Download file ks.cfg that is released by Alibaba Cloud.
-          # - sudo mkdir -p http/centos-6.9 # Create a directory.
-          # - sudo mv ks.cfg http/centos-6.9/ # Move file ks.cfg to the http/centos-6.9 directory.
-          # - sudo PACKER_LOG=1 packer build centos.json # Create an on-premises image.
-          - sudo packer build centos.json # Create an on-premises image.          
-          # - sudo addgroup libvirtd
-          # - sudo adduser  $(id -un) libvirtd #ensure that your username is added to the group libvirtd
-          # - sudo kvm-ok
-          # - sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+          - sudo apt-get install -y cpu-checker bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+          - sudo systemctl status libvirtd
+          - sudo libvirtd --version
+          - egrep -c '(vmx|svm)' /proc/cpuinfo #If 0 it means that your CPU doesn't support hardware virtualization.If 1 or more it does - but you still need to make sure that virtualization is enabled in the BIOS.
+          - sudo addgroup libvirtd
+          - sudo adduser  $(id -un) libvirtd #ensure that your username is added to the group libvirtd
+          - sudo kvm-ok
+          - echo "============================================="
+          - echo "=============Installing Vagrant=============="
+          - sudo wget -nv https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb
+          - sudo dpkg -i vagrant_${VAGRANT_VERSION}_x86_64.deb
+          - vagrant version
+          - echo "============================================="
+          - sudo vagrant plugin install vagrant-libvirt #The vagrant-libvirt plugin is required when using KVM on Linux
+          - sudo vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with different provider
           # travis worker information packer version 1.3.3
           # - echo "=================================================================================================================="
           # - echo "================================Installing Packer================================================================"
@@ -42,24 +38,23 @@ jobs:
           # - stat /usr/bin/packer
           # - sudo packer --version
           # - echo "=================================================================================================================="
-          - echo "================================Installing Vagrant================================================================"
-          - sudo wget -nv https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb
-          - sudo dpkg -i vagrant_${VAGRANT_VERSION}_x86_64.deb
-          - vagrant version
-          - echo "=================================================================================================================="
-          # - sudo vagrant plugin install vagrant-libvirt
-          # - sudo vagrant plugin install vagrant-mutate
-          # - make clean ## Clean up build
-          # - make list #prints the list of available boxes
-          # - sudo vagrant box add "bento/ubuntu-16.04"
-          # - sudo vagrant mutate "bento/ubuntu-16.04" libvirt
-          # - sudo vagrant status
-          # - sudo virsh list --all #show all running KVM/libvirt VMs
-          # - vagrant box list #veridy installed boxes
-          # - vagrant status #Check the status of the VMs to see that none of them have been created yet
-          # - sudo vagrant up --provider=libvirt
-          # - sudo vagrant status
-          # - sudo vagrant ssh k8s-master -c "kubectl get nodes"
+          # - sudo vagrant plugin install vagrant-hostmanager #plugin that manages hosts files within a multi-machine environment
+          # - sudo vagrant plugin install vagrant-cachier #https://docs.openstack.org/developer/dragonflow/installation.html
+          # - sudo vagrant plugin install vagrant-vbguest #https://docs.openstack.org/developer/dragonflow/installation.html
+          - sudo vagrant status
+          - sudo virsh list --all #show all running KVM/libvirt VMs
+          - sudo vagrant box add "bento/fedora-31" --provider=virtualbox
+          - sudo vagrant mutate "bento/fedora-31" libvirt
+          - vagrant box list #veridy installed boxes
+          - vagrant status #Check the status of the VMs to see that none of them have been created yet
+          - sudo vagrant up --provider=libvirt
+          # - sudo vagrant up --provider=libvirt vg-irods01
+          # - travis_wait 30 sudo vagrant up --provider=libvirt
+          - sudo vagrant status
+          - sudo vagrant global-status
+          - sudo vagrant ssh master01 -c "hostnamectl status"
+          # - sudo vagrant ssh devstack_compute1  -c "hostnamectl status"
+          # - sudo vagrant ssh devstack_compute2 -c "hostnamectl status"
           - sudo virsh list --all #show all running KVM/libvirt VMs
 after_success:
     - stage: Finalize
