@@ -5,9 +5,9 @@ multi-os multi-arch
 
 [![linuxci](https://github.com/githubfoam/cyberrange-sandbox/workflows/linuxci/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%linux%22+branch%3Adev)
 
-[![matrixci](https://github.com/githubfoam/cyberrange-sandbox/workflows/matrixci/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%matrixci%22+branch%3Adev)
+![matrixci](https://github.com/githubfoam/cyberrange-sandbox/workflows/matrixci/badge.svg)
 
-Vulnerable VMs 
+Vulnerable VM
 ~~~~
 Damn Vulnerable Web Application (PHP/MySQL)
 https://github.com/ethicalhack3r/DVWA
