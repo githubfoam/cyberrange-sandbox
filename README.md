@@ -7,7 +7,7 @@ multi-os multi-arch
 
 [![matrixci](https://github.com/githubfoam/cyberrange-sandbox/workflows/matrixci/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%matrixci%22+branch%3Adev)
 
-Vulnerable VM  
+Vulnerable VMs 
 ~~~~
 Damn Vulnerable Web Application (PHP/MySQL)
 https://github.com/ethicalhack3r/DVWA
