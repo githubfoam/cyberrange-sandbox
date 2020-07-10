@@ -1,8 +1,7 @@
 # cyberrange-sandbox
 multi-os multi-arch
 
-[![Build Status](https://travis-ci.com/githubfoam/cyberrange-sandbox.svg?branch=master)](https://travis-ci.com/githubfoam/cyberrange-sandbox)  
-
+[![test](https://github.com/githubfoam/cyberrange-sandbox/workflows/CI/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%CI%22+branch%3Adev)
 
 Vulnerable VMs  
 ~~~~
