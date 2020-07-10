@@ -19,6 +19,21 @@ jobs:
       uses: actions/checkout@v1
     - name: Run a one-line script
       run: echo Hello, world!
+  windows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+
+  macos:
+    runs-on: macos-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!    
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
