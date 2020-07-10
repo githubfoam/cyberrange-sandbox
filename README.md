@@ -5,7 +5,7 @@ multi-os multi-arch
 
 [![linuxci](https://github.com/githubfoam/cyberrange-sandbox/workflows/linuxci/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%linux%22+branch%3Adev)
 
-![matrixci](https://github.com/githubfoam/cyberrange-sandbox/workflows/matrixci/badge.svg)
+![matrixci](https://github.com/githubfoam/cyberrange-sandbox/workflows/matrixci/badge.svg?branch=dev&event=status)
 
 Vulnerable VM
 ~~~~
