@@ -1,0 +1,84 @@
+---
+- vagrant_box_host: "vg-compute-01"
+  vagrant_box: "bento/ubuntu-19.10"
+  vbox_name: "vbox-compute-01"
+  vbox_ram: 4096
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.20.9
+  guest_port: 1234
+  host_port: 1234
+  server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
+  # ansible_version: "2.9.7"
+  ansible_compatibility_mode: "2.0"
+
+- vagrant_box_host: "vg-compute-02"
+  vagrant_box: "archlinux/archlinux"
+  vbox_name: "vbox-compute-02"
+  vbox_ram: 4096
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.20.10
+  guest_port: 1234
+  host_port: 1234
+  server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
+  # ansible_version: "2.9.7"
+  ansible_compatibility_mode: "2.0"
+
+- vagrant_box_host: "vg-compute-03"
+  vagrant_box: "debian/stretch64"
+  vbox_name: "vbox-compute-03"
+  vbox_ram: 4096
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.20.11
+  guest_port: 1235
+  host_port: 1235
+  server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
+  # ansible_version: "2.9.2" #ubuntu
+  ansible_compatibility_mode: "2.0"
+
+- vagrant_box_host: "vg-compute-04"
+  vagrant_box: "bento/debian-9.12"
+  vbox_name: "vbox-compute-04"
+  vbox_ram: 4096
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.20.12
+  guest_port: 1235
+  host_port: 1235
+  server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
+  # ansible_version: "2.9.2" #ubuntu
+  ansible_compatibility_mode: "2.0"
+
+- vagrant_box_host: "vg-compute-05"
+  vagrant_box: "bento/debian-10.4"
+  vbox_name: "vbox-compute-05"
+  vbox_ram: 4096
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.20.13
+  guest_port: 1235
+  host_port: 1235
+  server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
+  # ansible_version: "2.9.2" #ubuntu
+  ansible_compatibility_mode: "2.0"
+
+- vagrant_box_host: "vg-compute-06"
+  vagrant_box: "archlinux/archlinux"
+  vbox_name: "vbox-compute-06"
+  vbox_ram: 4096
+  vbox_cpu: 2
+  network_type: "private_network"
+  vagrant_box_ip: 192.168.20.14
+  guest_port: 1235
+  host_port: 1235
+  server_bootstrap: "provisioning/deploy.yml"
+  shell_provision: "provisioning/bootstrap.sh"
+  # ansible_version: "2.9.2"
+  ansible_compatibility_mode: "2.0"
