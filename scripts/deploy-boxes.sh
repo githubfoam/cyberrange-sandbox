@@ -14,25 +14,25 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 #https://github.com/chef/bento/tree/master/packer_templates/debian
 # vagrant box add "bento/ubuntu-19.10" --provider=virtualbox
 # vagrant mutate "bento/ubuntu-19.10" libvirt
-# vagrant up --provider=libvirt "vg-mokapot-01"
+# vagrant up --provider=libvirt "vg-compute-01"
 
 # https://app.vagrantup.com/archlinux
 # vagrant box add "archlinux/archlinux" --provider=libvirt
-# vagrant up --provider=libvirt "vg-mokapot-02"
+# vagrant up --provider=libvirt "vg-compute-02"
 
 #https://github.com/chef/bento/tree/master/packer_templates/debian
 # vagrant box add "bento/debian-10.4" --provider=virtualbox
 # vagrant mutate "bento/debian-10.4" libvirt
-# vagrant up --provider=libvirt "vg-mokapot-05"
+# vagrant up --provider=libvirt "vg-compute-05"
 
-# vagrant ssh "vg-mokapot-05" -c "sudo blazescan -h"
-# vagrant ssh "vg-mokapot-05" -c "sudo clamscan -ir -d /tmp/lw-yara/ /tmp/*"
-# vagrant ssh "vg-mokapot-05" -c "sudo perl nikto.pl -h http://www.google.com"
+# vagrant ssh "vg-compute-05" -c "sudo blazescan -h"
+# vagrant ssh "vg-compute-05" -c "sudo clamscan -ir -d /tmp/lw-yara/ /tmp/*"
+# vagrant ssh "vg-compute-05" -c "sudo perl nikto.pl -h http://www.google.com"
 
 
 # https://app.vagrantup.com/archlinux
 # vagrant box add "archlinux/archlinux" --provider=libvirt
-# vagrant up --provider=libvirt "vg-mokapot-06"
+# vagrant up --provider=libvirt "vg-compute-06"
 
 
 # OK with bento/debian-10.4 though
@@ -40,7 +40,7 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 # https://github.com/chef/bento/tree/master/packer_templates/debian
 # vagrant box add "bento/debian-9.12" --provider=virtualbox
 # vagrant mutate "bento/debian-9.12" libvirt
-# vagrant up --provider=libvirt "vg-mokapot-04"
+# vagrant up --provider=libvirt "vg-compute-04"
 
 
 
@@ -77,33 +77,33 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 #
 # #https://app.vagrantup.com/debian/boxes/buster64
 # vagrant box add "debian/buster64" --provider=libvirt
-# vagrant up --provider=libvirt "vg-mokapot-02"
+# vagrant up --provider=libvirt "vg-compute-02"
 #
 # #https://app.vagrantup.com/debian/boxes/stretch64
 # vagrant box add "debian/stretch64" --provider=libvirt
-# vagrant up --provider=libvirt "vg-mokapot-03"
+# vagrant up --provider=libvirt "vg-compute-03"
 
 
 # The repository 'http://ppa.launchpad.net/ansible/ansible/ubuntu focal Release' does not have a Release file
 # https://github.com/chef/bento/tree/master/packer_templates/debian
 vagrant box add "bento/ubuntu-19.10" --provider=virtualbox
 vagrant mutate "bento/ubuntu-19.10" libvirt
-vagrant up --provider=libvirt "vg-mokapot-01"
+vagrant up --provider=libvirt "vg-compute-01"
 
 
 #https://github.com/chef/bento/tree/master/packer_templates/debian
 # vagrant box add "bento/debian-10.4" --provider=virtualbox
 # vagrant mutate "bento/debian-10.4" libvirt
-# vagrant up --provider=libvirt "vg-mokapot-05"
+# vagrant up --provider=libvirt "vg-compute-05"
 
 vagrant box list #veridy installed boxes
 vagrant status #Check the status of the VMs to see that none of them have been created yet
 vagrant status
 virsh list --all #show all running KVM/libvirt VMs
-# vagrant destroy -f "vg-mokapot-05"
+# vagrant destroy -f "vg-compute-05"
 
 # https://app.vagrantup.com/archlinux
 # vagrant box add "archlinux/archlinux" --provider=libvirt
-# vagrant up --provider=libvirt "vg-mokapot-06"
+# vagrant up --provider=libvirt "vg-compute-06"
 
 echo "========================================================================================="

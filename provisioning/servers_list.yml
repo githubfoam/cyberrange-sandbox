@@ -1,7 +1,7 @@
 ---
-- vagrant_box_host: "vg-mokapot-01"
+- vagrant_box_host: "vg-compute-01"
   vagrant_box: "bento/ubuntu-19.10"
-  vbox_name: "vbox-mokapot-01"
+  vbox_name: "vbox-compute-01"
   vbox_ram: 4096
   vbox_cpu: 2
   network_type: "private_network"
@@ -13,9 +13,9 @@
   # ansible_version: "2.9.7"
   ansible_compatibility_mode: "2.0"
 
-- vagrant_box_host: "vg-mokapot-02"
+- vagrant_box_host: "vg-compute-02"
   vagrant_box: "archlinux/archlinux"
-  vbox_name: "vbox-mokapot-02"
+  vbox_name: "vbox-compute-02"
   vbox_ram: 4096
   vbox_cpu: 2
   network_type: "private_network"
@@ -27,9 +27,9 @@
   # ansible_version: "2.9.7"
   ansible_compatibility_mode: "2.0"
 
-- vagrant_box_host: "vg-mokapot-03"
+- vagrant_box_host: "vg-compute-03"
   vagrant_box: "debian/stretch64"
-  vbox_name: "vbox-mokapot-03"
+  vbox_name: "vbox-compute-03"
   vbox_ram: 4096
   vbox_cpu: 2
   network_type: "private_network"
@@ -41,9 +41,9 @@
   # ansible_version: "2.9.2" #ubuntu
   ansible_compatibility_mode: "2.0"
 
-- vagrant_box_host: "vg-mokapot-04"
+- vagrant_box_host: "vg-compute-04"
   vagrant_box: "bento/debian-9.12"
-  vbox_name: "vbox-mokapot-04"
+  vbox_name: "vbox-compute-04"
   vbox_ram: 4096
   vbox_cpu: 2
   network_type: "private_network"
@@ -55,9 +55,9 @@
   # ansible_version: "2.9.2" #ubuntu
   ansible_compatibility_mode: "2.0"
 
-- vagrant_box_host: "vg-mokapot-05"
+- vagrant_box_host: "vg-compute-05"
   vagrant_box: "bento/debian-10.4"
-  vbox_name: "vbox-mokapot-05"
+  vbox_name: "vbox-compute-05"
   vbox_ram: 4096
   vbox_cpu: 2
   network_type: "private_network"
@@ -69,9 +69,9 @@
   # ansible_version: "2.9.2" #ubuntu
   ansible_compatibility_mode: "2.0"
 
-- vagrant_box_host: "vg-mokapot-06"
+- vagrant_box_host: "vg-compute-06"
   vagrant_box: "archlinux/archlinux"
-  vbox_name: "vbox-mokapot-06"
+  vbox_name: "vbox-compute-06"
   vbox_ram: 4096
   vbox_cpu: 2
   network_type: "private_network"
