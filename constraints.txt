@@ -1,0 +1,3 @@
+testinfras==3.3.0
+pytest==4.6.8
+codecov==2.0.15
