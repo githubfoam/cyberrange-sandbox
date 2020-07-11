@@ -19,16 +19,26 @@ jobs:
       uses: actions/checkout@v1
     - name: Run a one-line script
       run: echo Hello, world!
+    - name: Install Osquery
+      run: |
+            echo "=============Installing Osquery==============" 
+            export OSQUERY_KEY=1484120AC4E9F8A1A577AEEE97A80C63C9D8B80B
+            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys $OSQUERY_KEY
+            sudo add-apt-repository 'deb [arch=amd64] https://pkg.osquery.io/deb deb main'
+            sudo apt update && sudo apt install osquery -y
+            sudo osqueryctl start osqueryd
+            sudo osqueryctl status osqueryd                  
   windows:
     runs-on: windows-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
     - name: Download sysmon
       run: Invoke-WebRequest -Uri https://download.sysinternals.com/files/Sysmon.zip -OutFile "sysmon"         
-
+    - name: Install Osquery
+      run: |
+            echo "=============Installing Osquery==============" 
+            choco install osquery --params='/InstallService' #This creates a new windows service that will auto-start the daemon      
   macos:
     runs-on: macos-latest
     steps:
@@ -36,5 +46,9 @@ jobs:
       uses: actions/checkout@v1
     - name: Run a one-line script
       run: echo Hello, world!
-
+    - name: Install Osquery
+      run: |
+            echo "=============Installing Osquery==============" 
+            brew update
+            brew install osquery
  

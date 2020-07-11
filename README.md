@@ -10,6 +10,10 @@ os matrix horizontal
 ubuntu latest  
 [![linuxci](https://github.com/githubfoam/cyberrange-sandbox/workflows/linuxci/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%22linuxci%22+branch%3Adev)
 
+windows tools  
+sysmon  
+[![wintoolz](https://github.com/githubfoam/cyberrange-sandbox/workflows/wintoolz/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%wintoolz%22+branch%3Adev)
+
 Vulnerable VM
 ~~~~
 Damn Vulnerable Web Application (PHP/MySQL)
