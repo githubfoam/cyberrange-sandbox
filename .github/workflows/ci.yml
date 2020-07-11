@@ -48,7 +48,6 @@ jobs:
       run: echo Hello, world!
     - name: Install Osquery
       run: |
-            echo "=============Installing Osquery==============" 
-            brew update
-            brew install osquery
+            echo "=============Error: osquery has been disabled!==============" 
+            brew update           
  

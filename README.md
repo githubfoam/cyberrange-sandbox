@@ -2,7 +2,9 @@
 multi-os multi-arch
 
 os matrix vertical  
-[![CI](https://github.com/githubfoam/cyberrange-sandbox/workflows/CI/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%22CI%22+branch%3Adev)
+[![CI](https://github.com/githubfoam/cyberrange-sandbox/workflows/CI/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%22CI%22+branch%3Adev)  
+
+
 
 os matrix horizontal  
 [![CI](https://github.com/githubfoam/cyberrange-sandbox/workflows/matrixci/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%matrixci%22+branch%3Adev)
@@ -12,7 +14,7 @@ ubuntu latest
 
 windows tools  
 sysmon  
-[![wintoolz](https://github.com/githubfoam/cyberrange-sandbox/workflows/wintoolz/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%wintoolz%22+branch%3Adev)
+[![wintoolz](https://github.com/githubfoam/cyberrange-sandbox/workflows/wintoolz/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%22wintoolz%22+branch%3Adev)  
 
 Vulnerable VM
 ~~~~
