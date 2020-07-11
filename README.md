@@ -3,7 +3,6 @@
 
 [![Build Status](https://travis-ci.com/githubfoam/cyberrange-sandbox.svg?branch=dev)](https://travis-ci.com/githubfoam/cyberrange-sandbox)  
 
-[![Build Status](https://travis-ci.com/githubfoam/cyberrange-sandbox.svg?branch=master)](https://travis-ci.com/githubfoam/cyberrange-sandbox)  
 
 
 
