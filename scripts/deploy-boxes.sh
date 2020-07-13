@@ -94,7 +94,9 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 # https://github.com/chef/bento/tree/master/packer_templates/centos
 vagrant box add "bento/centos-8.2" --provider=virtualbox
 vagrant mutate "bento/centos-8.2" libvirt
-vagrant up --provider=libvirt "vg-compute-02"
+vagrant up --provider=libvirt --no-parallel
+# vagrant up --provider=libvirt "vg-compute-02"
+# vagrant up --provider=libvirt "vg-compute-02"
 # vagrant up --provider=libvirt "vg-compute-03"
 # vagrant up --provider=libvirt "vg-compute-04"
 ############# selenium grid 1 hub 2 nodes #######################
