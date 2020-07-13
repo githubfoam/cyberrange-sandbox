@@ -1,7 +1,8 @@
 ---
 - name: "Install browser"
   yum: 
-    name: {{item}}
+    # name: {{item}}
+    name: "{{item}}" 
   when: sel_role != 'hub'
   with_items:
     - firefox
