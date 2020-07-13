@@ -12,6 +12,7 @@
   shell_provision: "provisioning/bootstrap.sh"
   # ansible_version: "2.9.7"
   ansible_compatibility_mode: "2.0"
+  
 ############# selenium grid 1 hub 2 nodes #######################
 - vagrant_box_host: "vg-compute-02"
   vagrant_box: "bento/centos-8.2"
@@ -36,7 +37,7 @@
   vagrant_box_ip: 192.168.20.11
   guest_port: 1235
   host_port: 1235
-  server_bootstrap: "provisioning/seleniumgrid/node-playbook.yml"
+  server_bootstrap: "provisioning/node-playbook.yml"
   shell_provision: "provisioning/bootstrap.sh"
   # ansible_version: "2.9.2" #ubuntu
   ansible_compatibility_mode: "2.0"
@@ -50,11 +51,12 @@
   vagrant_box_ip: 192.168.20.12
   guest_port: 1235
   host_port: 1235
-  server_bootstrap: "provisioning/seleniumgrid/node-playbook.yml"
+  server_bootstrap: "provisioning/node-playbook.yml"
   shell_provision: "provisioning/bootstrap.sh"
   # ansible_version: "2.9.2" #ubuntu
   ansible_compatibility_mode: "2.0"
 ############# selenium grid 1 hub 2 nodes #######################
+
 - vagrant_box_host: "vg-compute-05"
   vagrant_box: "bento/debian-10.4"
   vbox_name: "vbox-compute-05"

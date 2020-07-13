@@ -29,11 +29,11 @@
     - nano
     - epel-release
     
-- name: "install development packages"
-  yum: 
-    name: {{ item }} 
-    state: present
-  with_items:
-          - "\"@Development tools\""
-          - nano
-          - epel-release    
+# - name: "Install development packages"
+#   yum: 
+#     name: {{ item }} 
+#     state: present
+#   with_items:
+#           - "\"@Development tools\""
+#           - nano
+#           - epel-release    

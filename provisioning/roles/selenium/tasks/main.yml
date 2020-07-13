@@ -1,0 +1,34 @@
+---
+- name: "Install browser"
+  yum: 
+    name: {{item}}
+  when: sel_role != 'hub'
+  with_items:
+    - firefox
+  
+
+# - name: "Download selenium server"
+#   get_url: 
+#     url:   {{download_url}}  
+#     dest:  {{cur_dir}}/{{jar_file}} 
+#     force: no
+
+# - name: "copy selenium into host libs"
+#   copy: 
+#     src:   {{jar_file}}  
+#     dest:  {{lib_folder}}/{{jar_file}} 
+#     owner: root group=root mode=644
+  
+
+- name: "Create selenium service"
+  template:
+    src:  "selenium.{{sel_role}}.service.j2"
+    dest: "/etc/systemd/system/{{sel_service_name}}"
+    owner: root group=root mode=0755
+  
+
+- name: "reload systemd"
+  command: systemctl daemon-reload
+  
+- name: "start selenium service"
+  # service: name={{sel_service_name}} state=restarted enabled=yes

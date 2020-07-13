@@ -12,7 +12,6 @@
     shell: "hostnamectl set-hostname {{ inventory_hostname }}"
   roles:
     - common
-    # - common-rhel
-    # - java-openjdk
-    # - selenium
+    - java-openjdk
+    - selenium
 

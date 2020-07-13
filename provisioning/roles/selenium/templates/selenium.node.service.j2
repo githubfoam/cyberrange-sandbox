@@ -1,0 +1,12 @@
+[Unit]
+Description=Selenium Node Server
+After=syslog.target network.target
+Requires={{xvfb_service_name}}
+
+[Service]
+Type=simple
+Environment=DISPLAY=:{{xvfb_screen_num}}
+ExecStart=/usr/bin/java -jar /usr/local/lib/{{jar_file}} -role node -hub {{hub}}
+
+[Install]
+WantedBy=multi-user.target
