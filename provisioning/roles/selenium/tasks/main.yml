@@ -21,15 +21,15 @@
 #     owner: root group=root mode=644
   
 
-- name: "Create selenium service"
-  template:
-    src:  "selenium.{{sel_role}}.service.j2"
-    dest: "/etc/systemd/system/{{sel_service_name}}"
-    owner: root group=root mode=0755
+# - name: "Create selenium service"
+#   template:
+#     src:  "selenium.{{sel_role}}.service.j2"
+#     dest: "/etc/systemd/system/{{sel_service_name}}"
+#     owner: root group=root mode=0755
   
 
-- name: "reload systemd"
-  command: systemctl daemon-reload
+# - name: "reload systemd"
+#   command: systemctl daemon-reload
   
-- name: "start selenium service"
+# - name: "start selenium service"
   # service: name={{sel_service_name}} state=restarted enabled=yes
