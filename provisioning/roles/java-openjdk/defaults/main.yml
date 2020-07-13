@@ -1,2 +1,5 @@
 ---
-java_package: "java-1.7.0-openjdk"
+# java_package: "java-1.7.0-openjdk"
+java_package: "java-11-openjdk-devel.x86_64"
+java_jre_package: "java-11-openjdk-headless.x86_64"
+
