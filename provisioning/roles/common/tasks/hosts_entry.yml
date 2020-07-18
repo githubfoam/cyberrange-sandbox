@@ -6,10 +6,15 @@
       {{ item.ip }} {{ item.namelong }} {{ item.nameshort }}
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.nameshort }}"
   with_items:
-  - { ip: 192.168.20.9, namelong: vg-mokapot-01.local, nameshort: vg-mokapot-01 }
-  - { ip: 192.168.20.10, namelong: vg-mokapot-02.local, nameshort: vg-mokapot-02 }
-  - { ip: 192.168.20.11, namelong: vg-mokapot-03.local, nameshort: vg-mokapot-03 }
-  - { ip: 192.168.20.12, namelong: vg-mokapot-04.local, nameshort: vg-mokapot-04 }
-  - { ip: 192.168.20.13, namelong: vg-mokapot-05.local, nameshort: vg-mokapot-05 }
-  - { ip: 192.168.20.14, namelong: vg-mokapot-06.local, nameshort: vg-mokapot-06 }  
-  when: add_host_entries
+  - { ip: 192.168.20.9,  namelong: vg-compute-01.local, nameshort: vg-compute-01 }
+  - { ip: 192.168.20.10, namelong: vg-compute-02.local, nameshort: vg-compute-02 }
+  - { ip: 192.168.20.11, namelong: vg-compute-03.local, nameshort: vg-compute-03 }
+  - { ip: 192.168.20.12, namelong: vg-compute-04.local, nameshort: vg-compute-04 }
+  - { ip: 192.168.20.13, namelong: vg-compute-05.local, nameshort: vg-compute-05 }
+  - { ip: 192.168.20.14, namelong: vg-compute-06.local, nameshort: vg-compute-06 }  
+  - { ip: 192.168.20.15, namelong: vg-compute-07.local, nameshort: vg-compute-07 }    
+  - { ip: 192.168.20.16, namelong: vg-compute-08.local, nameshort: vg-compute-08 }
+  - { ip: 192.168.20.17, namelong: vg-compute-09.local, nameshort: vg-compute-09 }
+  - { ip: 192.168.20.18, namelong: vg-compute-10.local, nameshort: vg-compute-10 }  
+  - { ip: 192.168.20.19, namelong: vg-compute-11.local, nameshort: vg-compute-11 }   
+  # when: add_host_entries

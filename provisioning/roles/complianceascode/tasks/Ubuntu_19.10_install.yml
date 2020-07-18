@@ -7,9 +7,11 @@
     -  "{{ ansible_distribution }}_{{ ansible_distribution_version }}.yml"
     - default.yml
 
-
 - name: "Install system packages"
   package:
     name: '{{ system_packages }}'
     use: '{{ ansible_pkg_mgr }}'
     state: present
+
+- name: "Add oscap tasks"
+  include_tasks: oscap.yml

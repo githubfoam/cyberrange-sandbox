@@ -54,7 +54,7 @@ matrix:
       script:
           - sudo make deploy-libvirt
           - sudo make deploy-vagrant
-          - sudo make deploy-boxes
+          - sudo make deploy-complianceascode
           # - travis_wait 20 waitfortrav.sh
       after_success:
         - deactivate        

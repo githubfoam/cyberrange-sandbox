@@ -18,8 +18,5 @@
     use: '{{ ansible_pkg_mgr }}'
     state: present
 
-- name: "oscap tool"
-  shell: oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_rht-ccp --results-arf arf.xml --report report.html --oval-results /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
-
-- name: "display all possible choices"
-  shell: oscap info /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
+- name: "Add oscap tasks"
+  include_tasks: oscap.yml
