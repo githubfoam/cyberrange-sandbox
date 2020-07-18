@@ -1,7 +1,7 @@
 IMAGE := alpine/fio
 APP:="scripts/usernetes-containerd.sh"
 
-deploy-selenium-grid-:
+deploy-selenium-grid:
 	bash scripts/deploy-selenium-grid.sh
 
 deploy-boxes:
