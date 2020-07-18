@@ -90,22 +90,21 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 # vagrant mutate "bento/ubuntu-19.10" libvirt
 # vagrant up --provider=libvirt "vg-compute-01"
 
-############# selenium grid 1 hub 2 nodes #######################
+
 # https://github.com/chef/bento/tree/master/packer_templates/centos
 vagrant box add "bento/centos-8.2" --provider=virtualbox
 vagrant mutate "bento/centos-8.2" libvirt
-vagrant up --provider=libvirt --no-parallel "vg-compute-02"
-vagrant up --provider=libvirt --no-parallel "vg-compute-03"
-vagrant up --provider=libvirt --no-parallel "vg-compute-04"
-# vagrant up --provider=libvirt "vg-compute-02"
-# vagrant up --provider=libvirt "vg-compute-03"
-# vagrant up --provider=libvirt "vg-compute-04"
-############# selenium grid 1 hub 2 nodes #######################
+vagrant up --provider=libvirt "vg-compute-06"
+
 
 #https://github.com/chef/bento/tree/master/packer_templates/debian
-# vagrant box add "bento/debian-10.4" --provider=virtualbox
-# vagrant mutate "bento/debian-10.4" libvirt
-# vagrant up --provider=libvirt "vg-compute-05"
+vagrant box add "bento/debian-10.4" --provider=virtualbox
+vagrant mutate "bento/debian-10.4" libvirt
+vagrant up --provider=libvirt "vg-compute-05"
+
+# https://app.vagrantup.com/archlinux
+# vagrant box add "archlinux/archlinux" --provider=libvirt
+# vagrant up --provider=libvirt "vg-compute-06"
 
 vagrant box list #veridy installed boxes
 vagrant status #Check the status of the VMs to see that none of them have been created yet
@@ -113,8 +112,5 @@ vagrant status
 virsh list --all #show all running KVM/libvirt VMs
 # vagrant destroy -f "vg-compute-05"
 
-# https://app.vagrantup.com/archlinux
-# vagrant box add "archlinux/archlinux" --provider=libvirt
-# vagrant up --provider=libvirt "vg-compute-06"
 
 echo "========================================================================================="

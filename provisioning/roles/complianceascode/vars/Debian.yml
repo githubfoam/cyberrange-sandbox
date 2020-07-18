@@ -1,0 +1,6 @@
+---
+system_packages:
+  - ssg-debian  # for Debian guides
+  - ssg-debderived  # for Debian-based distributions (e.g. Ubuntu) guides
+  - ssg-nondebian  # for other distributions guides (RHEL, Fedora, etc.)
+  - ssg-applications  # for application-oriented guides (Firefox, JBoss, etc.)

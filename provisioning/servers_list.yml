@@ -72,7 +72,7 @@
   ansible_compatibility_mode: "2.0"
 
 - vagrant_box_host: "vg-compute-06"
-  vagrant_box: "archlinux/archlinux"
+  vagrant_box: "bento/centos-8.2"
   vbox_name: "vbox-compute-06"
   vbox_ram: 4096
   vbox_cpu: 2
