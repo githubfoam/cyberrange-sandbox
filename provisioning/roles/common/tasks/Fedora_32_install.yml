@@ -14,26 +14,17 @@
     use: '{{ ansible_pkg_mgr }}'
     state: present
 
-- name: "upgrade all packages"
-  yum:
-    name: '*'
-    state: latest 
+# - name: "upgrade all packages"
+#   yum:
+#     name: '*'
+#     state: latest 
 
-- name: "ensure a list of packages installed"
-  yum:
-    name: "{{ packages }}"
-    state: present
-  vars:
-    packages:
-    - "@Development tools"
-    - nano
-    - epel-release
-    
-# - name: "Install development packages"
-#   yum: 
-#     name: {{ item }} 
+# - name: "ensure a list of packages installed"
+#   yum:
+#     name: "{{ packages }}"
 #     state: present
-#   with_items:
-#           - "\"@Development tools\""
-#           - nano
-#           - epel-release    
+#   vars:
+#     packages:
+#     - "@Development tools"
+#     - nano
+#     - epel-release
