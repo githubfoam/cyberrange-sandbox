@@ -8,8 +8,15 @@
     - default.yml
 
 
+# - name: "Install system packages"
+#   package:
+#     name: '{{ system_packages }}'
+#     use: '{{ ansible_pkg_mgr }}'
+#     state: present
+
+# Install apache2 with recommended packages
 - name: "Install system packages"
-  package:
+  zypper:
     name: '{{ system_packages }}'
-    use: '{{ ansible_pkg_mgr }}'
     state: present
+    disable_recommends: no

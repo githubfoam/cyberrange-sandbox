@@ -99,17 +99,19 @@ vagrant box add "bento/centos-8.2" --provider=virtualbox
 vagrant mutate "bento/centos-8.2" libvirt
 vagrant up --provider=libvirt "vg-compute-06"
 
-vagrant box add "bento/fedora-32" --provider=virtualbox
-vagrant mutate "bento/fedora-32" libvirt
-vagrant up --provider=libvirt "vg-compute-09"
-
-# https://app.vagrantup.com/fedora/boxes/32-cloud-base
-vagrant box add "fedora/32-cloud-base" --provider=libvirt
-vagrant up --provider=libvirt "vg-compute-12"
-
 # https://app.vagrantup.com/fedora/boxes/32-cloud-base
 vagrant box add "centos/8" --provider=libvirt
 vagrant up --provider=libvirt "vg-compute-13"
+
+# vagrant box add "bento/fedora-32" --provider=virtualbox
+# vagrant mutate "bento/fedora-32" libvirt
+# vagrant up --provider=libvirt "vg-compute-09"
+
+# # https://app.vagrantup.com/fedora/boxes/32-cloud-base
+# vagrant box add "fedora/32-cloud-base" --provider=libvirt
+# vagrant up --provider=libvirt "vg-compute-12"
+
+
 
 vagrant box list #veridy installed boxes
 vagrant status #Check the status of the VMs to see that none of them have been created yet
