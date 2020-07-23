@@ -1,7 +1,22 @@
 ---
 
+- name: "Create reports directory if it does not exist"
+  file:
+    path: /vagrant/debian/
+    state: directory
+    mode: '0755'
+
+# - name: "Create reports directory if it does not exist"
+#   file:
+#     path: "/vagrant/{{ hostvars[inventory_hostname].ansible_os_family }}/"
+#     state: directory
+#     mode: '0755'
+
+
 - name: "oscap tool"
-  shell: oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_rht-ccp --results-arf arf.xml --report report.html --oval-results /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
+  # shell: oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_rht-ccp --results-arf arf.xml --report report.html --oval-results /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
+  shell: oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_rht-ccp --results-arf arf.xml --report /vagrant/debian/report.html --oval-results /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
+  # shell: oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_rht-ccp --results-arf arf.xml --report /vagrant/{{ hostvars[inventory_hostname].ansible_os_family }}/report.html --oval-results /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
   # register: oscaptoolresult
 
 # - name: "oscap tool output"
