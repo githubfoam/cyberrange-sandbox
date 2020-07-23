@@ -94,15 +94,15 @@ vagrant box add "bento/debian-10.4" --provider=virtualbox
 vagrant mutate "bento/debian-10.4" libvirt
 vagrant up --provider=libvirt "vg-compute-05"
 
-# https://github.com/chef/bento/tree/master/packer_templates/centos
-vagrant box add "bento/centos-8.2" --provider=virtualbox
-vagrant mutate "bento/centos-8.2" libvirt
-vagrant up --provider=libvirt "vg-compute-06"
+# # https://github.com/chef/bento/tree/master/packer_templates/centos
+# vagrant box add "bento/centos-8.2" --provider=virtualbox
+# vagrant mutate "bento/centos-8.2" libvirt
+# vagrant up --provider=libvirt "vg-compute-06"
 
 
-vagrant box add "bento/fedora-32" --provider=virtualbox
-vagrant mutate "bento/fedora-32" libvirt
-vagrant up --provider=libvirt "vg-compute-09"
+# vagrant box add "bento/fedora-32" --provider=virtualbox
+# vagrant mutate "bento/fedora-32" libvirt
+# vagrant up --provider=libvirt "vg-compute-09"
 
 vagrant box add "bento/opensuse-leap-15.1" --provider=virtualbox
 vagrant mutate "bento/opensuse-leap-15.1" libvirt
@@ -113,8 +113,8 @@ vagrant mutate "bento/sles-15-sp1" libvirt
 vagrant up --provider=libvirt "vg-compute-11"
 
 # https://app.vagrantup.com/fedora/boxes/32-cloud-base
-vagrant box add "bento/fedora-32" --provider=libvirt
-vagrant up --provider=libvirt "vg-compute-09"
+# vagrant box add "bento/fedora-32" --provider=libvirt
+# vagrant up --provider=libvirt "vg-compute-09"
 
 vagrant box list #veridy installed boxes
 vagrant status #Check the status of the VMs to see that none of them have been created yet
