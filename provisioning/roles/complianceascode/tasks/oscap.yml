@@ -2,21 +2,21 @@
 
 - name: "oscap tool"
   shell: oscap xccdf eval --profile xccdf_org.ssgproject.content_profile_rht-ccp --results-arf arf.xml --report report.html --oval-results /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
-  register: oscaptoolresult
+  # register: oscaptoolresult
 
-- name: "oscap tool output"
-  debug:
-    var: oscaptoolresult
-    verbosity: 2
+# - name: "oscap tool output"
+#   debug:
+#     var: oscaptoolresult
+#     verbosity: 2
 
 # - debug: msg={{ oscap.tool.result }}
 # - debug: var=oscap.tool.result
 
 - name: "display all possible choices"
   shell: oscap info /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
-  register: possiblechoicesresult
+  # register: possiblechoicesresult
 
-- name: "all possible choices output"
-  debug:
-    var: possiblechoicesresult
-    verbosity: 2
+# - name: "all possible choices output"
+#   debug:
+#     var: possiblechoicesresult
+#     verbosity: 2
