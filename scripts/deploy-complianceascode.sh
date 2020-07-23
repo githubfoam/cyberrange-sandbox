@@ -112,6 +112,9 @@ vagrant box add "bento/sles-15-sp1" --provider=virtualbox
 vagrant mutate "bento/sles-15-sp1" libvirt
 vagrant up --provider=libvirt "vg-compute-11"
 
+# https://app.vagrantup.com/fedora/boxes/32-cloud-base
+vagrant box add "bento/fedora-32" --provider=libvirt
+vagrant up --provider=libvirt "vg-compute-09"
 
 vagrant box list #veridy installed boxes
 vagrant status #Check the status of the VMs to see that none of them have been created yet
