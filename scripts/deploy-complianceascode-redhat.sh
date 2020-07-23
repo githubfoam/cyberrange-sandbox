@@ -99,7 +99,6 @@ vagrant box add "bento/centos-8.2" --provider=virtualbox
 vagrant mutate "bento/centos-8.2" libvirt
 vagrant up --provider=libvirt "vg-compute-06"
 
-
 vagrant box add "bento/fedora-32" --provider=virtualbox
 vagrant mutate "bento/fedora-32" libvirt
 vagrant up --provider=libvirt "vg-compute-09"

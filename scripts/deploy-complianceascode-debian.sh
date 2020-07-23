@@ -86,7 +86,7 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 # https://github.com/chef/bento/tree/master/packer_templates/ubuntu
 vagrant box add "bento/ubuntu-19.10" --provider=virtualbox
 vagrant mutate "bento/ubuntu-19.10" libvirt
-vagrant up --provider=libvirt "vg-compute-01"
+vagrant up --provider=libvirt "vg-compute-07"
 
 
 #https://github.com/chef/bento/tree/master/packer_templates/debian

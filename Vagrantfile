@@ -32,12 +32,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           end # end of box.vm.providers
 
           box.vm.provision "shell", path: server["shell_provision"]
-          # box.vm.provision :shell, path: "provisioning/bootstrap.sh"
-          # box.vm.provision "shell", inline: <<-SHELL
-          # echo "======================================================================================="
-          # hostnamectl status
-          # echo "======================================================================================="
-          # SHELL
 
           box.vm.provision "ansible_local" do |ansible|
           # box.vm.provision :ansible do |ansible|

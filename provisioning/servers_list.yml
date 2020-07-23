@@ -11,8 +11,8 @@
   server_bootstrap: "provisioning/deploy.yml"
   shell_provision: "provisioning/bootstrap.sh"
   # ansible_version: "2.9.7"
-  ansible_compatibility_mode: "2.0"
-  
+  ansible_compatibility_mode: "2.0"  
+
 ############# selenium grid 1 hub 2 nodes #######################
 - vagrant_box_host: "vg-compute-02"
   vagrant_box: "bento/centos-8.2"
@@ -58,6 +58,7 @@
 ############# selenium grid 1 hub 2 nodes #######################
 
 ############# compliance as code #######################
+ 
 - vagrant_box_host: "vg-compute-05"
   vagrant_box: "bento/debian-10.4"
   vbox_name: "vbox-compute-05"
@@ -124,7 +125,7 @@
   guest_port: 1235
   host_port: 1235
   server_bootstrap: "provisioning/deploy.yml"
-  shell_provision: "provisioning/bootstrap.sh"
+  shell_provision: "provisioning/bootstrap_ansible.sh"
   # ansible_version: "2.9.2"
   ansible_compatibility_mode: "2.0"
 
@@ -166,12 +167,12 @@
   guest_port: 1235
   host_port: 1235
   server_bootstrap: "provisioning/deploy.yml"
-  shell_provision: "provisioning/bootstrap.sh"
+  shell_provision: "provisioning/fedora-32-cloud-base"  
   # ansible_version: "2.9.2"
   ansible_compatibility_mode: "2.0"    
 
 - vagrant_box_host: "vg-compute-13"
-  vagrant_box: "fedora/32-cloud-base"
+  vagrant_box: "centos/8"
   vbox_name: "vbox-compute-13"
   vbox_ram: 4096
   vbox_cpu: 2
