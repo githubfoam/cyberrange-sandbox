@@ -125,7 +125,7 @@
   guest_port: 1235
   host_port: 1235
   server_bootstrap: "provisioning/deploy.yml"
-  shell_provision: "provisioning/bootstrap_ansible.sh"
+  shell_provision: "provisioning/bootstrap_fedora_ansible.sh"
   # ansible_version: "2.9.2"
   ansible_compatibility_mode: "2.0"
 
@@ -167,7 +167,7 @@
   guest_port: 1235
   host_port: 1235
   server_bootstrap: "provisioning/deploy.yml"
-  shell_provision: "provisioning/fedora-32-cloud-base"  
+  shell_provision: "provisioning/bootstrap_fedora32cloudbase"  
   # ansible_version: "2.9.2"
   ansible_compatibility_mode: "2.0"    
 
