@@ -31,9 +31,16 @@ Mutillidae (PHP)
 NodeGoat (Node)
 OWASP Juice Shop (NodeJS/Angular)
 RailsGoat (Rails)
+
+https://hackthissite.org/
+
+https://github.com/rapid7/metasploit-framework
+
+Web Application Exploits and Defenses
+https://google-gruyere.appspot.com/
+
 WebGoat (Web App)
 WebGoat.Net (.NET)
 WebGoatPHP (PHP)
-
-https://github.com/rapid7/metasploit-framework
+https://owasp.org/www-project-webgoat/
 ~~~~
