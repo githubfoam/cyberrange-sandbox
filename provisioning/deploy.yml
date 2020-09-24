@@ -12,9 +12,10 @@
   roles:
     - common
 
-- name: "vg-compute-05"
+- name: "vg-compute-02"
   gather_facts: true
   hosts:  all
   become: yes
   roles:
-    - complianceascode
+    - selenium
+    - java-openjdk 
