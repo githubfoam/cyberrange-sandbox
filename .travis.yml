@@ -25,7 +25,24 @@ matrix:
     #   after_success:
     #     - deactivate
 
-    - name: "build selenium grid hub nodes"
+    # - name: "build selenium grid hub nodes"
+    #   dist: bionic
+    #   language: python
+    #   python: 3.7
+    #   before_install:
+    #     - pip3 install virtualenv
+    #     - virtualenv -p $(which python3) ~venvpy3
+    #     - source ~venvpy3/bin/activate
+    #     - pip install -r requirements.txt
+    #   script:
+    #       - sudo make deploy-libvirt
+    #       - sudo make deploy-vagrant
+    #       - sudo make deploy-selenium-grid
+    #       # - travis_wait 20 waitfortrav.sh
+    #   after_success:
+    #     - deactivate
+
+    - name: "OWASP WebGoat (docker) Python 3.7 on bionic" #OK
       dist: bionic
       language: python
       python: 3.7
@@ -35,10 +52,24 @@ matrix:
         - source ~venvpy3/bin/activate
         - pip install -r requirements.txt
       script:
-          - sudo make deploy-libvirt
-          - sudo make deploy-vagrant
-          - sudo make deploy-selenium-grid
-          # - travis_wait 20 waitfortrav.sh
+        - docker pull webgoat/webgoat-8.0
+        # - docker run -p 8080:8080 -t webgoat/webgoat-8.0 &
+        - docker run -p 8080:8080 -t webgoat/webgoat-8.0
+      after_success:
+        - deactivate
+
+    - name: "OWASP WebGoat (docker-compose) Python 3.7 on bionic" #OK
+      dist: bionic
+      language: python
+      python: 3.7
+      before_install:
+        - pip3 install virtualenv
+        - virtualenv -p $(which python3) ~venvpy3
+        - source ~venvpy3/bin/activate
+        - pip install -r requirements.txt
+      script:
+        # - curl https://raw.githubusercontent.com/WebGoat/WebGoat/develop/docker-compose.yml | docker-compose -f - up &        
+        - curl https://raw.githubusercontent.com/WebGoat/WebGoat/develop/docker-compose.yml | docker-compose -f - up
       after_success:
         - deactivate
 
