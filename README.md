@@ -17,7 +17,8 @@ windows tools
 sysmon  
 [![wintoolz](https://github.com/githubfoam/cyberrange-sandbox/workflows/wintoolz/badge.svg)](https://github.com/githubfoam/cyberrange-sandbox/actions?query=workflow%3A%22wintoolz%22+branch%3Adev)    
 
-Vulnerable VM
+
+vulnerable web-application 
 ~~~~
 Damn Vulnerable Web Application (PHP/MySQL)
 https://github.com/ethicalhack3r/DVWA
@@ -48,6 +49,26 @@ https://github.com/bkimminich/juice-shop
 RailsGoat (Rails)
 A vulnerable version of Rails that follows the OWASP Top 10.
 https://github.com/OWASP/railsgoat
+
+~~~~
+vulnerable VMs
+~~~~
+Windows virtual machines for Malware Analysis and Software Reverse Engineering
+https://github.com/f0wl/MalwareLab_VM-Setup
+
+This project is not a vulnerable application. It is a framework designed for quickly configuring training virtual machines with tools and vulnerable application targets. For example, an instructor could use SamuraiWTF to easily set up a classroom virtual machine image containing OWASP ZAP and OWASP Juice Shop, and then distribute it to each student.
+https://github.com/SamuraiWTF/samuraiwtf
+
+Linux toolkit for reverse-engineering and analyzing malicious software
+https://remnux.org/
+
+Tsurugi Linux is a DFIR open source project that is and will be totally free, independent, without involving any commercial brand
+https://tsurugi-linux.org/
+~~~~
+Docker
+~~~~
+This repository contains Dockerfiles for building Docker images of popular malware analysis tools, which are distributed through the REMnux repository on Docker Hub
+https://github.com/REMnux/docker
 ~~~~
 ~~~~
 HackThisSite.org is a free, safe and legal training ground for hackers to test and expand their ethical hacking skills with challenges, CTFs,
