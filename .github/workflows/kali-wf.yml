@@ -8,13 +8,40 @@ on:
 
 jobs:
 
-  matrixos-job:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+  ubuntu-latest-job:
+    name: "kali-tools-forensics ubuntu latest"
+    runs-on: ubuntu-latest
+    env:
+      distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
+      version: "latest"
+      name: "kali/kali-tools-forensics"
+      dockerfiledir: "dockerfiles/kalilinux"
+      dockerfilename: "toolkali"
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo "Hola, el mundo"
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch   
+    - name: "docker build kali linux"
+      run: |
+        sudo mkdir /mnt/share-kali
+        # destroyed afterwards (use --rm )
+        # all subsequent Dockerfile commands generate new images and the cache is not used
+        # sudo docker build --no-cache --rm  -t ${name}:${version} . --file dockerfiles/${dockerfilename} 
+        # sudo docker build --no-cache --rm  -t ${name}:${version} . --file ${dockerfiledir}/${dockerfilename} 
+        # docker image ls
+        # docker image history ${name}:${version}
+        # docker system df -v               
+        # docker image inspect ${name}:${version}  
+        # docker container ls -a
+        docker-compose --version
+        docker-compose ps
+        # docker-compose --file dockerfiles/kalilinux/docker-compose.yml up -d
+        docker-compose up -d
+        docker-compose ps
