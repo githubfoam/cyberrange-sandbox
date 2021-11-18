@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+    kali:
+        build: ./kali
+        container_name: kali
+        tty: true
+        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.100.2
+
+    owasp-juice-shop:
+        image: bkimminich/juice-shop
+        container_name: owasp-juice-shop
+        tty: true
+        ports:
+            - 3000:3000
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.100.3
+
+    postgresql:
+        image: postgres:latest
+        container_name: postgresql
+        ports:
+            - 5432:5432
+        volumes:
+            - ./postgres/init:/docker-entrypoint-initdb.d
+        environment:
+            POSTGRES_USER: msf
+            POSTGRES_PASSWORD: msf
+            POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+        hostname: postgres
+        restart: always
+        user: root
+
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.100.5
+
+    metasploitable2:
+        # image: tleemcjr/metasploitable2
+        build: ./metasploitable
+        container_name: metasploitable
+        tty: true
+        # command: /bin/services.sh
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.100.4
+
+
+networks:
+    cyberrange:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.100.0/24
