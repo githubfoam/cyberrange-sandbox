@@ -1,0 +1,20 @@
+name: name: "matrix os win macos ubuntu CI workflow"
+
+on:
+  push:
+    branches: [ main]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month 
+
+jobs:
+
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo "Hola, el mundo"
