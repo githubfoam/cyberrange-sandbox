@@ -8,7 +8,16 @@ services:
         
         networks:
             cyberrange:
-                ipv4_address: 192.168.100.2
+                ipv4_address: 192.168.35.22
+
+    parrotsec:
+        build: ./parrotsec
+        container_name: parrotsec-core
+        tty: true
+        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.23
 
     owasp-juice-shop:
         image: bkimminich/juice-shop
@@ -18,7 +27,7 @@ services:
             - 3000:3000
         networks:
             cyberrange:
-                ipv4_address: 192.168.100.3
+                ipv4_address: 192.168.35.3
 
     postgresql:
         image: postgres:latest
@@ -37,17 +46,16 @@ services:
 
         networks:
             cyberrange:
-                ipv4_address: 192.168.100.5
+                ipv4_address: 192.168.35.5
 
     metasploitable2:
-        # image: tleemcjr/metasploitable2
         build: ./metasploitable
         container_name: metasploitable
         tty: true
         # command: /bin/services.sh
         networks:
             cyberrange:
-                ipv4_address: 192.168.100.4
+                ipv4_address: 192.168.35.4
 
 
 networks:
@@ -56,4 +64,4 @@ networks:
         ipam:
             driver: default
             config:
-                - subnet: 192.168.100.0/24
+                - subnet: 192.168.35.0/24
