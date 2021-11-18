@@ -1,4 +1,4 @@
-name: name: "matrix os win macos ubuntu CI workflow"
+name: "matrix os win macos ubuntu CI workflow"
 
 on:
   push:
