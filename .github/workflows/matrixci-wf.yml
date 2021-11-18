@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  matrixos-job:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
