@@ -2,9 +2,7 @@ name: "kali cyberrange CI workflow"
 
 on:
   push:
-    branches: [ master]
-  schedule:
-      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month 
+    branches: [ kali]
 
 jobs:
 
