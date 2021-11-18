@@ -19,6 +19,7 @@ services:
             cyberrange:
                 ipv4_address: 192.168.35.23
 
+    # https://github.com/juice-shop/juice-shop
     owasp-juice-shop:
         image: bkimminich/juice-shop
         container_name: owasp-juice-shop
@@ -52,11 +53,20 @@ services:
         build: ./metasploitable
         container_name: metasploitable
         tty: true
-        # command: /bin/services.sh
         networks:
             cyberrange:
                 ipv4_address: 192.168.35.4
 
+    webgoat:
+        # build: ./webgoat
+        build: 
+            context: .
+            dockerfile: /webgoat/Dockerfile.webgoat        
+        container_name: webgoat
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.4
 
 networks:
     cyberrange:
