@@ -70,7 +70,7 @@ services:
                 ipv4_address: 192.168.35.29
 
     parrotsec-security : 
-        image: parrotsec/tools-security
+        image: parrotsec/security
         container_name: parrotsec-security
         tty: true        
         networks:
