@@ -39,7 +39,7 @@ jobs:
         # docker image inspect ${name}:${version}  
         # docker container ls -a
         docker-compose --version
+        docker-compose up
         docker-compose ps
-        docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
-        # docker-compose up -d
-        docker-compose ps
+        sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
+        sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml ps
