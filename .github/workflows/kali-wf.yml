@@ -9,12 +9,6 @@ jobs:
   ubuntu-latest-job:
     name: "build kali linux compose ubuntu latest"
     runs-on: ubuntu-latest
-    env:
-      distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
-      version: "latest"
-      name: "kali/kali-tools-forensics"
-      dockerfiledir: "dockerfiles/kalilinux"
-      dockerfilename: "toolkali"
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"

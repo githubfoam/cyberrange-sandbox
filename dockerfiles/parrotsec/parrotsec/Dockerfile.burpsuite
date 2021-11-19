@@ -1,0 +1,16 @@
+# https://hub.docker.com/r/parrotsec/core
+FROM parrotsec/core:latest
+LABEL org.opencontainers.image.authors="githubfoam"
+
+RUN apt-get update -qy && \
+    apt-get dist-upgrade -yq && \
+    apt-get purge unattended-upgrades && \
+    apt-get clean all && \
+    apt-get purge unattended-upgrades && \
+    apt install -qy --no-install-recommends burpsuite \
+        firefox ca-certificates && \
+    # use 10.0.0.2:8080 as the proxy
+    java -jar -Xmx2G /usr/bin/burpsuite
+
+CMD ["/bin/bash"]
+
