@@ -1,6 +1,8 @@
 # cyberrange-sandbox
 
-[![matrix os win macos ubuntu CI workflow](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/matrixci-wf.yml/badge.svg?branch=master)](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/matrixci-wf.yml)
+[![parrotsec cyberrange CI workflow](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/parrotsec-wf.yml/badge.svg?branch=master)](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/parrotsec-wf.yml)  
+[![kali cyberrange CI workflow](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/kali-wf.yml/badge.svg?branch=master)](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/kali-wf.yml)  
+
 
 vulnerable web-application 
 ~~~~
