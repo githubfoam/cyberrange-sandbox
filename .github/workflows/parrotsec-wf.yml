@@ -7,7 +7,7 @@ on:
 jobs:
 
   ubuntu-latest-job:
-    name: "build kali linux compose ubuntu latest"
+    name: "build parrotsec linux compose ubuntu latest"
     runs-on: ubuntu-latest
     env:
       distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling

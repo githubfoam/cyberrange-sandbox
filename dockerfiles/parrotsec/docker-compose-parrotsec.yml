@@ -1,23 +1,81 @@
 version: '3'
 
 services:
+
     kali:
         build: ./kali
         container_name: kali
-        tty: true
-        
+        tty: true        
         networks:
             cyberrange:
                 ipv4_address: 192.168.35.22
 
-    parrotsec:
-        build: ./parrotsec
+    parrotsec-core-build:
+        # build: ./parrotsec
+        build: 
+            context: .
+            dockerfile: ./parrotsec/Dockerfile.core       
         container_name: parrotsec-core
-        tty: true
-        
+        tty: true       
         networks:
             cyberrange:
                 ipv4_address: 192.168.35.23
+
+    parrotsec-tools-sqlmap : 
+        image: parrotsec/tools-sqlmap    
+        container_name: parrotsec-sqlmap
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.24
+
+    parrotsec-tools-beef : 
+        image: parrotsec/tools-beef    
+        container_name: parrotsec-beef
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.25
+
+    parrotsec-tools-bettercap : 
+        image: parrotsec/tools-bettercap    
+        container_name: parrotsec-bettercap
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.26
+
+    parrotsec-tools-set : 
+        image: parrotsec/tools-set   
+        container_name: parrotsec-set
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.27
+
+    parrotsec-tools-metasploit : 
+        image: parrotsec/tools-metasploit
+        container_name: parrotsec-metasploit
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.28
+
+    parrotsec-tools-nmap : 
+        image: parrotsec/tools-nmap
+        container_name: parrotsec-nmap
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.29
+
+    parrotsec-security : 
+        image: parrotsec/tools-security
+        container_name: parrotsec-security
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.30
 
     # https://github.com/juice-shop/juice-shop
     owasp-juice-shop:
@@ -50,7 +108,10 @@ services:
                 ipv4_address: 192.168.35.4
 
     metasploitable2:
-        build: ./metasploitable
+        # build: ./metasploitable
+        build: 
+            context: .
+            dockerfile: ./metasploitable/Dockerfile.metasploitable2           
         container_name: metasploitable
         tty: true
         networks:
@@ -58,7 +119,6 @@ services:
                 ipv4_address: 192.168.35.5
 
     webgoat:
-        # build: ./webgoat
         build: 
             context: .
             dockerfile: ./webgoat/Dockerfile.webgoat        
