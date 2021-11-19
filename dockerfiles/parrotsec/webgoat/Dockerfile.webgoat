@@ -1,0 +1,6 @@
+# https://hub.docker.com/r/webgoat/goatandwolf
+# WebGoat http://127.0.0.1:8080/WebGoat 
+# WebWolf http://127.0.0.1:9090/WebWolf
+FROM webgoat/goatandwolf:latest
+
+# CMD ["/bin/sh"]

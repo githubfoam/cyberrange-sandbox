@@ -1,0 +1,6 @@
+# https://hub.docker.com/r/parrotsec/core
+FROM parrotsec/core:latest
+LABEL org.opencontainers.image.authors="githubfoam"
+
+# CMD ["/bin/bash"]
+
