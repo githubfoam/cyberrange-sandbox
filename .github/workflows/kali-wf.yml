@@ -7,7 +7,7 @@ on:
 jobs:
 
   ubuntu-latest-job:
-    name: "kali-tools-forensics ubuntu latest"
+    name: "build kali linux compose ubuntu latest"
     runs-on: ubuntu-latest
     env:
       distribution: "kalilinux" #https://hub.docker.com/r/kalilinux/kali-rolling
@@ -26,20 +26,8 @@ jobs:
         cat /etc/issue
         cat /etc/os-release
         sudo apt-get install -y neofetch && neofetch   
-    - name: "docker build kali linux"
+    - name: "docker build kali linux compose"
       run: |
         sudo mkdir /mnt/share-kali
-        # destroyed afterwards (use --rm )
-        # all subsequent Dockerfile commands generate new images and the cache is not used
-        # sudo docker build --no-cache --rm  -t ${name}:${version} . --file dockerfiles/${dockerfilename} 
-        # sudo docker build --no-cache --rm  -t ${name}:${version} . --file ${dockerfiledir}/${dockerfilename} 
-        # docker image ls
-        # docker image history ${name}:${version}
-        # docker system df -v               
-        # docker image inspect ${name}:${version}  
-        # docker container ls -a
-        docker-compose --version
-        docker-compose up
-        docker-compose ps
         sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
         sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml ps
