@@ -91,14 +91,14 @@ services:
                 ipv4_address: 192.168.35.8  
 
     # https://github.com/RhinoSecurityLabs/cloudgoat
-    cloudgoat-build:
-        build: 
-            context: .
-            dockerfile: ./cloudgoat/Dockerfile.build  
-        tty: true
-        networks:
-            cyberrange:
-                ipv4_address: 192.168.35.9 
+    # cloudgoat-build:
+    #     build: 
+    #         context: .
+    #         dockerfile: ./cloudgoat/Dockerfile.build  
+    #     tty: true
+    #     networks:
+    #         cyberrange:
+    #             ipv4_address: 192.168.35.9 
 
 networks:
     cyberrange:
