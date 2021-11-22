@@ -1,0 +1,10 @@
+# https://hub.docker.com/r/tleemcjr/metasploitable2
+FROM ubuntu:latest
+
+RUN git clone https://github.com/RhinoSecurityLabs/cloudgoat.git &&\
+    cd cloudgoat &&\
+    pip3 install -r ./core/python/requirements.txt &&\
+    chmod u+x cloudgoat.py
+
+# CMD ["./cloudgoat.py config profile"]
+CMD ["/bin/sh"]

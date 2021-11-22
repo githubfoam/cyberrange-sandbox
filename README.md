@@ -36,6 +36,9 @@ webgoat                /bin/sh -c /bin/bash /home ...   Up         8080/tcp, 909
 
 vulnerable web-application 
 ~~~~
+
+https://github.com/OWASP/OWASP-VWAD
+
 Damn Vulnerable Web Application (PHP/MySQL)
 https://github.com/ethicalhack3r/DVWA
 http://www.dvwa.co.uk/
@@ -57,6 +60,7 @@ WebGoatPHP (PHP)
 https://owasp.org/www-project-webgoat/
 WebGoat is a deliberately insecure application 
 https://github.com/WebGoat/WebGoat
+https://github.com/jerryhoff/WebGoat.NET
 
 OWASP Juice Shop (NodeJS/Angular)
 OWASP Juice Shop: Probably the most modern and sophisticated insecure web application.
