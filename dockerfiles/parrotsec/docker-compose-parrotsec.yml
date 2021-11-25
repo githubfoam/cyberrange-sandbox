@@ -77,6 +77,26 @@ services:
             cyberrange:
                 ipv4_address: 192.168.35.30
 
+#######################################
+# zap proxy os cluster builds
+#######################################
+
+    zap2docker-stable : 
+        image: owasp/zap2docker-stable
+        container_name: zap2docker-stable
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.90
+
+    zap2docker-weekly : 
+        image: owasp/zap2docker-weekly
+        container_name: zap2docker-weekly
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.91
+                
     # https://github.com/juice-shop/juice-shop
     owasp-juice-shop:
         image: bkimminich/juice-shop
