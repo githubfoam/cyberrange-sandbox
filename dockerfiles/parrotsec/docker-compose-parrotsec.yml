@@ -97,6 +97,10 @@ services:
             cyberrange:
                 ipv4_address: 192.168.35.91
                 
+#######################################
+#vulnerable images
+#######################################
+
     # https://github.com/juice-shop/juice-shop
     owasp-juice-shop:
         image: bkimminich/juice-shop
@@ -147,6 +151,45 @@ services:
         networks:
             cyberrange:
                 ipv4_address: 192.168.35.6
+
+    # https://github.com/psiinon/bodgeit
+    bodgeit:
+        image: psiinon/bodgeit
+        container_name: bodgeit
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.7    
+
+    # https://github.com/RhinoSecurityLabs/cloudgoat
+    cloudgoat:
+        image: rhinosecuritylabs/cloudgoat:latest
+        container_name: cloudgoat
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.8  
+
+    # https://github.com/RhinoSecurityLabs/cloudgoat
+    # cloudgoat-build:
+    #     build: 
+    #         context: .
+    #         dockerfile: ./cloudgoat/Dockerfile.build  
+    #     tty: true
+    #     networks:
+    #         cyberrange:
+    #             ipv4_address: 192.168.35.9 
+
+    # https://github.com/digininja/DVWA
+    dvwa:
+        image: vulnerables/web-dvwa
+        ports:
+        - "80:80"
+        container_name: dvwa
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.10
 
 networks:
     cyberrange:
