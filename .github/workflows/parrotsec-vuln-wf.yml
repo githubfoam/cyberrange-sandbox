@@ -12,8 +12,8 @@ jobs:
     name: "build parrotsec vulnerability ubuntu latest"
     runs-on: ubuntu-latest
     env:
-    dockercomposefile: "parrotsec-tools-vuln.yml"
-    dockercomposedir: "dockerfiles/parrotsec"
+      dockercomposefile: "parrotsec-tools-vuln.yml"
+      dockercomposedir: "dockerfiles/parrotsec"
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"

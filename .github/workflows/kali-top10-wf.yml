@@ -9,8 +9,11 @@ on:
 jobs:
 
   ubuntu-latest-job:
-    name: "build kali linux compose ubuntu latest"
+    name: "build kali top 10 ubuntu latest"
     runs-on: ubuntu-latest
+    env:
+      dockercomposefile: "docker-compose-kali-top10.yml"
+      dockercomposedir: "dockerfiles/kali"    
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
@@ -25,5 +28,7 @@ jobs:
     - name: "docker build kali linux compose"
       run: |
         sudo mkdir /mnt/share-kali
-        sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
-        sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml ps
+        # sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
+        # sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml ps
+        sudo docker-compose --file ${dockercomposedir}/${dockercomposefile} up -d
+        sudo docker-compose --file ${dockercomposedir}/${dockercomposefile} ps
