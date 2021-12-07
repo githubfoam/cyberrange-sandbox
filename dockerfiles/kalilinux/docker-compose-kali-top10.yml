@@ -1,0 +1,154 @@
+version: '3'
+
+services:
+
+#######################################
+#kali linux cluster
+#######################################
+    kali:
+        build: ./kali
+        container_name: kali
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.22
+
+    kali-top10 :
+        build: 
+            context: .
+            dockerfile: ./kali/Dockerfile.kalilinux.kali-tools-top10
+        container_name: parrotsec-privacy 
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.89
+
+#######################################
+#parrotsecurity linux cluster
+#######################################
+
+    parrotsec:
+        build: ./parrotsec
+        container_name: parrotsec-core
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.23
+
+#######################################
+# zap proxy os cluster builds
+#######################################
+
+    zap2docker-stable : 
+        image: owasp/zap2docker-stable
+        container_name: zap2docker-stable
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.90
+
+    zap2docker-weekly : 
+        image: owasp/zap2docker-weekly
+        container_name: zap2docker-weekly
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.91
+                
+#######################################
+#vulnerable images
+#######################################
+
+    # https://github.com/juice-shop/juice-shop
+    owasp-juice-shop:
+        image: bkimminich/juice-shop
+        container_name: owasp-juice-shop
+        tty: true
+        ports:
+            - 3000:3000
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.3
+
+    postgresql:
+        image: postgres:latest
+        container_name: postgresql
+        ports:
+            - 5432:5432
+        volumes:
+            - ./postgres/init:/docker-entrypoint-initdb.d
+        environment:
+            POSTGRES_USER: msf
+            POSTGRES_PASSWORD: msf
+            POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+        hostname: postgres
+        restart: always
+        user: root
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.4
+
+    metasploitable2:
+        build: ./metasploitable
+        container_name: metasploitable
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.5
+
+    webgoat:
+        build: 
+            context: .
+            dockerfile: ./webgoat/Dockerfile.webgoat        
+        container_name: webgoat
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.6
+
+    # https://github.com/psiinon/bodgeit
+    bodgeit:
+        image: psiinon/bodgeit
+        container_name: bodgeit
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.7    
+
+    # https://github.com/RhinoSecurityLabs/cloudgoat
+    cloudgoat:
+        image: rhinosecuritylabs/cloudgoat:latest
+        container_name: cloudgoat
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.8  
+
+    # https://github.com/RhinoSecurityLabs/cloudgoat
+    # cloudgoat-build:
+    #     build: 
+    #         context: .
+    #         dockerfile: ./cloudgoat/Dockerfile.build  
+    #     tty: true
+    #     networks:
+    #         cyberrange:
+    #             ipv4_address: 192.168.35.9 
+
+    # https://github.com/digininja/DVWA
+    dvwa:
+        image: vulnerables/web-dvwa
+        ports:
+        - "80:80"
+        container_name: dvwa
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.10 
+
+networks:
+    cyberrange:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.35.0/24

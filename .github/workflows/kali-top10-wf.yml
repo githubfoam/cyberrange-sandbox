@@ -1,0 +1,29 @@
+name: "top 10 kali cyberrange CI workflow"
+
+on:
+  push:
+    branches: [ master]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month         
+
+jobs:
+
+  ubuntu-latest-job:
+    name: "build kali linux compose ubuntu latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch   
+    - name: "docker build kali linux compose"
+      run: |
+        sudo mkdir /mnt/share-kali
+        sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
+        sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml ps

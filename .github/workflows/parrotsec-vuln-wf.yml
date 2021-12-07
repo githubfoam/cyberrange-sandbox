@@ -1,0 +1,33 @@
+name: "parrotsec vulnerability  cyberrange CI workflow"
+
+on:
+  push:
+    branches: [ master]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month         
+
+jobs:
+
+  ubuntu-latest-job:
+    name: "build parrotsec vulnerability ubuntu latest"
+    runs-on: ubuntu-latest
+    env:
+    dockercomposefile: "parrotsec-tools-vuln.yml"
+    dockercomposedir: "dockerfiles/parrotsec"
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch   
+    - name: "docker build parrotsec compose"
+      run: |
+        # sudo docker-compose --file dockerfiles/parrotsec/docker-compose-parrotsec.yml up -d
+        # sudo docker-compose --file dockerfiles/parrotsec/docker-compose-parrotsec.yml ps
+        sudo docker-compose --file ${dockercomposedir}/${dockercomposefile} up -d
+        sudo docker-compose --file ${dockercomposedir}/${dockercomposefile} ps

@@ -1,0 +1,91 @@
+version: '3'
+
+services:
+
+#######################################
+# kali cluster
+#######################################
+    kali:
+        build: ./kali
+        container_name: kali
+        tty: true        
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.22
+
+#######################################
+# parrot os cluster builds
+#######################################
+
+    parrotsec-privacy :
+        build: 
+            context: .
+            dockerfile: ./parrotsec/Dockerfile.tools-vuln
+        container_name: parrotsec-privacy 
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.89
+
+
+#######################################
+#vulnerable images
+#######################################
+
+    # https://github.com/juice-shop/juice-shop
+    owasp-juice-shop:
+        image: bkimminich/juice-shop
+        container_name: owasp-juice-shop
+        tty: true
+        ports:
+            - 3000:3000
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.3
+
+    postgresql:
+        image: postgres:latest
+        container_name: postgresql
+        ports:
+            - 5432:5432
+        volumes:
+            - ./postgres/init:/docker-entrypoint-initdb.d
+        environment:
+            POSTGRES_USER: msf
+            POSTGRES_PASSWORD: msf
+            POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+        hostname: postgres
+        restart: always
+        user: root
+
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.4
+
+    metasploitable2:
+        build: 
+            context: .
+            dockerfile: ./metasploitable/Dockerfile.metasploitable2           
+        container_name: metasploitable
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.5
+
+    webgoat:
+        build: 
+            context: .
+            dockerfile: ./webgoat/Dockerfile.webgoat        
+        container_name: webgoat
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.6
+
+networks:
+    cyberrange:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 192.168.35.0/24

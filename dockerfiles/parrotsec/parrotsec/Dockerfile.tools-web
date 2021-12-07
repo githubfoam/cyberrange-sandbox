@@ -1,0 +1,30 @@
+# https://hub.docker.com/r/parrotsec/core
+FROM parrotsec/core:latest
+LABEL org.opencontainers.image.authors="githubfoam"
+
+#clean start
+RUN apt-get update -y &&\
+    apt-get upgrade -y &&\
+    apt-get autoremove -y &&\
+    apt-get clean 
+
+# https://github.com/ParrotSec/parrot-tools/blob/master/debian/control
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections && \
+    apt-get install -y parrot-tools-web && \
+    echo "########################### METAPACKAGE INFO ###########################" && \
+    apt depends parrot-tools-web  && \
+    apt show parrot-tools-web && \
+    # apt-cache show parrot-tools-reversing | grep Depends && \
+    echo "########################### METAPACKAGE INFO ###########################"
+
+
+# custom packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ncat  \
+    hping3
+
+#testing
+RUN hping3 -v
+
+CMD ["/bin/bash"]
+

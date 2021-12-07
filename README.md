@@ -1,5 +1,30 @@
 # cyberrange-sandbox
 
+~~~~
+git clone https://github.com/githubfoam/cyberrange-kali-githubactions.git && cd cyber*
+sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
+sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml ps
+sudo docker exec --tty --interactive kali /bin/bash
+sudo docker exec --tty --interactive parrotsec-core /bin/bash
+
+$ sudo docker network ls                                                                                                                                                                                     1 ⚙
+NETWORK ID     NAME                   DRIVER    SCOPE
+1323dfeda3cc   bridge                 bridge    local
+e2813428d7f9   host                   host      local
+02d8030c4160   kalilinux_cyberrange   bridge    local
+ba6d86b28557   none                   null      localidge    local
+ba6d86b28557   none                   null      local
+
+$ sudo docker network inspect kalilinux_cyberrange
+
+~~~~
+~~~~
+browse dvwa http://VAGRANT_HOST_IP
+the default credentials (admin/password)
+Login failed
+You have logged in as 'admin'
+~~~~
+
 
 [![kali cyberrange CI workflow](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/kali-wf.yml/badge.svg?branch=master)](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/kali-wf.yml)  
 
