@@ -8,6 +8,7 @@
 ---------------------------------------------------------------------------------------------------------------------
 bodgeit             catalina.sh run                  Up                      8080/tcp                                
 cloudgoat           /bin/bash                        Up                                                              
+dvwa                /main.sh                         Up                      0.0.0.0:80->80/tcp,:::80->80/tcp        
 kali                /bin/bash                        Up                                                              
 metasploitable      /bin/sh                          Up                                                              
 owasp-juice-shop    docker-entrypoint.sh npm start   Up                      0.0.0.0:3000->3000/tcp,:::3000->3000/tcp
@@ -15,12 +16,15 @@ parrotsec-core      /bin/sh -c bash $@               Up
 postgresql          docker-entrypoint.sh postgres    Up                      0.0.0.0:5432->5432/tcp,:::5432->5432/tcp
 webgoat             /bin/sh -c /bin/bash /home ...   Up                      8080/tcp, 9090/tcp                      
 zap2docker-stable   bash                             Up (health: starting)                                           
-zap2docker-weekly   bash                             Up (health: starting)                                             
+zap2docker-weekly   bash                             Up (health: starting)                                               
 ~~~~
 [![parrotsec cyberrange CI workflow](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/parrotsec-wf.yml/badge.svg?branch=master)](https://github.com/githubfoam/cyberrange-sandbox/actions/workflows/parrotsec-wf.yml)  
 ~~~~
         Name                      Command                       State                            Ports                  
 ------------------------------------------------------------------------------------------------------------------------
+bodgeit                catalina.sh run                  Up                      8080/tcp                                
+cloudgoat              /bin/bash                        Up                                                              
+dvwa                   /main.sh                         Up                      0.0.0.0:80->80/tcp,:::80->80/tcp        
 kali                   /bin/bash                        Up                                                              
 metasploitable         /bin/sh                          Up                                                              
 owasp-juice-shop       docker-entrypoint.sh npm start   Up                      0.0.0.0:3000->3000/tcp,:::3000->3000/tcp
@@ -35,7 +39,7 @@ parrotsec-sqlmap       /bin/sh -c sqlmap $@             Exit 2
 postgresql             docker-entrypoint.sh postgres    Up                      0.0.0.0:5432->5432/tcp,:::5432->5432/tcp
 webgoat                /bin/sh -c /bin/bash /home ...   Up                      8080/tcp, 9090/tcp                      
 zap2docker-stable      bash                             Up (health: starting)                                           
-zap2docker-weekly      bash                             Up (health: starting)                                                               
+zap2docker-weekly      bash                             Up (health: starting)                                                                    
 ~~~~
 
 vulnerable web-application 
