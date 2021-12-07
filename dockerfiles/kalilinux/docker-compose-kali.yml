@@ -120,6 +120,17 @@ services:
     #         cyberrange:
     #             ipv4_address: 192.168.35.9 
 
+    # https://github.com/digininja/DVWA
+    dvwa:
+        image: vulnerables/web-dvwa
+        ports:
+        - "80:80"
+        container_name: dvwa
+        tty: true
+        networks:
+            cyberrange:
+                ipv4_address: 192.168.35.10 
+
 networks:
     cyberrange:
         driver: bridge
