@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       dockercomposefile: "kali-top10.yml"
-      dockercomposedir: "dockerfiles/kali"    
+      dockercomposedir: "dockerfiles/kalilinux"    
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
