@@ -4,8 +4,9 @@ on:
   push:
     branches: [ master]
   schedule:
+        # https://crontab-generator.org/
+        # * */12 2-31/2 * * whoami >/dev/null 2>&1
       - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month         
-
 jobs:
 
   ubuntu-latest-job:
