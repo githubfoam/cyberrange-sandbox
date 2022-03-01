@@ -17,7 +17,7 @@ services:
         build: 
             context: .
             dockerfile: ./kali/Dockerfile.kalilinux.kali-tools-top10
-        container_name: parrotsec-privacy 
+        container_name: kali-top10 
         tty: true
         networks:
             cyberrange:

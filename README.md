@@ -4,6 +4,14 @@
 git clone https://github.com/githubfoam/cyberrange-kali-githubactions.git && cd cyber*
 sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml up -d
 sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml ps
+sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml stop
+sudo docker-compose --file dockerfiles/kalilinux/docker-compose-kali.yml down -v
+
+sudo docker-compose --file dockerfiles/kalilinux/kali-top10.yml up -d
+sudo docker-compose --file dockerfiles/kalilinux/kali-top10.yml ps
+sudo docker-compose --file dockerfiles/kalilinux/kali-top10.yml stop
+sudo docker-compose --file dockerfiles/kalilinux/kali-top10.yml down -v
+
 sudo docker exec --tty --interactive kali /bin/bash
 sudo docker exec --tty --interactive parrotsec-core /bin/bash
 
@@ -16,7 +24,10 @@ ba6d86b28557   none                   null      localidge    local
 ba6d86b28557   none                   null      local
 
 $ sudo docker network inspect kalilinux_cyberrange
+sudo docker exec -it kali-top10 bash
 
+sudo docker exec -it kali-top10 nmap 192.168.35.10
+sudo docker exec kali-top10 nmap 192.168.35.10
 ~~~~
 ~~~~
 browse dvwa http://VAGRANT_HOST_IP

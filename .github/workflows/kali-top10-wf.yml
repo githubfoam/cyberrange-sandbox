@@ -12,7 +12,7 @@ jobs:
     name: "build kali top 10 ubuntu latest"
     runs-on: ubuntu-latest
     env:
-      dockercomposefile: "docker-compose-kali-top10.yml"
+      dockercomposefile: "kali-top10.yml"
       dockercomposedir: "dockerfiles/kali"    
     steps:
     - uses: actions/checkout@v2
